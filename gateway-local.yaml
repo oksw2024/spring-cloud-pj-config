@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowed-headers: "*"
+            allowed-methods:
+              - GET
+              - POST
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: msa
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: first-service
+          uri: lb://first-service
+          predicates:
+            - Path=/first-service/**
+            
+        - id: second-service
+          uri: lb://second-service
+          predicates:
+            - Path=/second-service/**
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
