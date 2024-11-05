@@ -23,6 +23,11 @@ spring:
           predicates:
             - Path=/login-service/**
             
+        - id: static_content
+          uri: forward:/
+          predicates:
+            - Path=/**
+            
 management:
   endpoints:
     web:
