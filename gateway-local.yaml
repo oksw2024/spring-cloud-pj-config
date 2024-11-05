@@ -22,9 +22,11 @@ spring:
           uri: lb://login-service
           predicates:
             - Path=/login-service/**
+          filters:
+            - StripPrefix=1
             
-        - id: static_content
-          uri: forward:/
+        - id: my-react-app
+          uri: http://localhost:5173
           predicates:
             - Path=/**
             
