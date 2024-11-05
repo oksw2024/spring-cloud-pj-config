@@ -1,14 +1,6 @@
 spring:
   cloud:
     gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: "http://localhost:3000"
-            allowed-headers: "*"
-            allowed-methods:
-              - GET
-              - POST
       default-filters:
         - name: GlobalFilter
           args:
@@ -25,6 +17,11 @@ spring:
           uri: lb://second-service
           predicates:
             - Path=/second-service/**
+            
+        - id: login-service
+          uri: lb://login-service
+          predicates:
+            - Path=/login-service/**
             
 management:
   endpoints:
