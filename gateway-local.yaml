@@ -40,6 +40,11 @@ spring:
           predicates:
             - Path=/api/vi/user/**
             
+        - id: my-react-app
+          uri: http://localhost:5173
+          predicates:
+            - Path=/**
+            
 management:
   endpoints:
     web:
