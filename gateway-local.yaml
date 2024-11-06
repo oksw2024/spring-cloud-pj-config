@@ -34,8 +34,6 @@ spring:
           uri: lb://login-service
           predicates:
             - Path=/login-service/**
-          filters:
-            - StripPrefix=1
             
         - id: my-react-app
           uri: http://localhost:5173
