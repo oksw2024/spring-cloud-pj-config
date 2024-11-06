@@ -30,15 +30,10 @@ spring:
           predicates:
             - Path=/second-service/**
             
-        - id: login-service-auth
+        - id: login-service
           uri: lb://login-service
           predicates:
             - Path=/api/vi/auth/**
-        
-        - id: login-service-user
-          uri: lb://login-service
-          predicates:
-            - Path=/api/vi/user/**
             
         - id: my-react-app
           uri: http://localhost:5173
