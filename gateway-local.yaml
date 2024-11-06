@@ -31,7 +31,7 @@ spring:
             - Path=/second-service/**
             
         - id: login-service
-          uri: lb://login-service
+          uri: lb://msa-jwt-service-2
           predicates:
             - Path=/api/vi/auth/**
             
