@@ -38,7 +38,7 @@ spring:
         - id: login-service-user
           uri: lb://login-service
           predicates:
-            - Path-/api/vi/user/**
+            - Path=/api/vi/user/**
             
 management:
   endpoints:
