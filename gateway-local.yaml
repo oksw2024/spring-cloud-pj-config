@@ -2,7 +2,7 @@ spring:
   cloud:
     gateway:
       globalcors:
-        cors-Configurations:
+        corsConfigurations:
           '[/**]':
             allowedOrigins: "http://localhost:5173"
             allowedHeaders:
@@ -33,7 +33,7 @@ spring:
         - id: login-service
           uri: lb://msa-jwt-service-2
           predicates:
-            - Path=/api/vi/auth/**
+            - Path=/api/v1/auth/**
             
         - id: my-react-app
           uri: http://localhost:5173
