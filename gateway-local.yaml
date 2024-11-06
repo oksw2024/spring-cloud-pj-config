@@ -2,17 +2,17 @@ spring:
   cloud:
     gateway:
       globalcors:
-        corsConfigurations:
+        cors-Configurations:
           '[/**]':
             allowedOrigins: "http://localhost:5173"
+            allowedHeaders:
+              - "*"
             allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders: "*"
-            allowCredentials: true
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+              - "OPTIONS"
       default-filters:
         - name: GlobalFilter
           args:
