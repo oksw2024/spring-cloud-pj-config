@@ -13,6 +13,7 @@ spring:
               - "PUT"
               - "DELETE"
               - "OPTIONS"
+            allowCredentials: true
       default-filters:
         - name: GlobalFilter
           args:
