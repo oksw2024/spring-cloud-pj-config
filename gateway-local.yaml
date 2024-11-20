@@ -15,6 +15,7 @@ spring:
               - "OPTIONS"
             allowCredentials: true
       default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
         - name: GlobalFilter
           args:
             baseMessage: msa
