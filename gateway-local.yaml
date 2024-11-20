@@ -48,7 +48,7 @@ spring:
         - id: booknote-service
           uri: lb://msa-booknote-service
           predicates:
-            - Path=/api/books/**
+            - Path=/api/books
           filters:
             - JwtAuthFilter
             
