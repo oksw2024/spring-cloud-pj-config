@@ -49,8 +49,6 @@ spring:
           uri: lb://msa-booknote-service
           predicates:
             - Path=/api/books
-          filters:
-            - JwtAuthFilter
             
 management:
   endpoints:
