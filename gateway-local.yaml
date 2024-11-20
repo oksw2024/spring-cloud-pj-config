@@ -42,6 +42,11 @@
 #           predicates:
 #             - Path=/api/v1/user/**
 
+          # - id: my-react-app
+          #   uri: http://localhost:5173
+          #   predicates:
+          #     - Path=/**
+
 #         - id: booknote-service
 #           uri: lb://msa-booknote-service
 #           predicates:
