@@ -43,7 +43,9 @@ spring:
         - id: my-react-app
           uri: http://localhost:5173
           predicates:
-            - Path=/**
+            - Path=/vite/**
+          filters:
+            - StripPrefix=1
 
         - id: booknote-service
           uri: lb://msa-booknote-service
