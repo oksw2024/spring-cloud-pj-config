@@ -1,62 +1,62 @@
-# spring:
-#   cloud:
-#     gateway:
-#       globalcors:
-#         cors-configurations:
-#           '[/**]':
-#             allowedOrigins: "http://localhost:5173"
-#             allowedHeaders:
-#               - "*"
-#             allowedMethods:
-#               - "GET"
-#               - "POST"
-#               - "PUT"
-#               - "DELETE"
-#               - "OPTIONS"
-#             allowCredentials: true
-#       default-filters:
-#         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
-#         - name: GlobalFilter
-#           args:
-#             baseMessage: msa
-#             preLogger: true
-#             postLogger: true
-#       routes:
-#         - id: first-service
-#           uri: lb://first-service
-#           predicates:
-#             - Path=/first-service/**
+spring:
+   cloud:
+     gateway:
+       globalcors:
+         cors-configurations:
+           '[/**]':
+             allowedOrigins: "http://localhost:5173
+             allowedHeaders:
+               - "*"
+             allowedMethods:
+               - "GET"
+               - "POST"
+               - "PUT"
+               - "DELETE"
+               - "OPTIONS"
+             allowCredentials: true
+       default-filters:
+         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+         - name: GlobalFilter
+           args:
+             baseMessage: msa
+             preLogger: true
+             postLogger: true
+       routes:
+         - id: first-service
+           uri: lb://first-service
+           predicates:
+             - Path=/first-service/**
             
-#         - id: second-service
-#           uri: lb://second-service
-#           predicates:
-#             - Path=/second-service/**
+         - id: second-service
+           uri: lb://second-service
+           predicates:
+             - Path=/second-service/**
             
-#         - id: login-service
-#           uri: lb://msa-jwt-service
-#           predicates:
-#             - Path=/api/v1/auth/**
+         - id: login-service
+           uri: lb://msa-jwt-service
+           predicates:
+             - Path=/api/v1/auth/**
             
-#         - id: login-service-user
-#           uri: lb://msa-jwt-service
-#           predicates:
-#             - Path=/api/v1/user/**
+         - id: login-service-user
+           uri: lb://msa-jwt-service
+           predicates:
+             - Path=/api/v1/user/**
 
-          # - id: my-react-app
-          #   uri: http://localhost:5173
-          #   predicates:
-          #     - Path=/**
+         - id: booknote-service
+           uri: lb://msa-booknote-service
+           predicates:
+             - Path=/api/books/**
 
-#         - id: booknote-service
-#           uri: lb://msa-booknote-service
-#           predicates:
-#             - Path=/api/books/**
+         - id: my-react-app
+           uri: http://localhost:5173
+           predicates:
+             - Path=/**
             
-# management:
-#   endpoints:
-#     web:
-#       exposure:
-#         include: "*"
-#   endpoint:
-#     gateway:
-#       enabled: true
+ management:
+   endpoints:
+     web:
+       exposure:
+         include: "*"
+   endpoint:
+     gateway:
+       enabled: true
